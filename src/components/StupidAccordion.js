@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import * as A from "./Accordion.style";
 import styled from "styled-components";
 
-const StyledButton = styled.button`
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 1rem;
-  line-height: 1.5;
-  border: 1px solid lightgray;
-  color: red;
-  background: blue;
-`;
-function Main() {
+const StupidAccordion = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <StyledButton>
-      <div>기무성 멍청이</div>
-      
-    </StyledButton>
-
+    <A.Wrapper>
+      <A.HeaderWrapper onClick={() => setIsOpen(!isOpen)}>
+        I'm stupid Accordion 2222zzz
+      </A.HeaderWrapper>
+      <RBodyWrapper isOpen={isOpen}>Body</RBodyWrapper>
+    </A.Wrapper>
   );
-}
+};
 
-export default Main;
+export default StupidAccordion;
+
+const RBodyWrapper = styled(A.BodyWrapper)`
+  background-color: red;
+`;
