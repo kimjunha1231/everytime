@@ -25,7 +25,7 @@ const NavSearchIcon = styled.div`
     padding-right:30px;
 `;
 const NavPersonIcon = styled.img`
-  width: 30%;
+  width: 10%;
   margin-right: 2px;
   backgorundcolor:red;
 `;
