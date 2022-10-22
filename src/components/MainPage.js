@@ -27,6 +27,7 @@ const NavSearchIcon = styled.div`
 const NavPersonIcon = styled.img`
   width: 30%;
   margin-right: 2px;
+  backgorundcolor:red;
 `;
 
 
