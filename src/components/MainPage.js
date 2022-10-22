@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import {navIcons} from '../resources/Resources'
 
 const Nav = styled.div`
     display:flex;
@@ -24,11 +25,10 @@ const NavSearchIcon = styled.div`
     font-size:20px;
     padding-right:30px;
 `;
-const NavPersonIcon = styled.div` 
-    font-size:20px;
-  
+const NavPersonIcon = styled.img`
+  width: 26px;
+  margin-right: 9px;
 `;
-
 
 
 const MainPage = () => {
@@ -41,7 +41,10 @@ const MainPage = () => {
             </NavBox>
             <NavBoxIcon>
                 <NavSearchIcon>돋보기 아이콘</NavSearchIcon>
-                <NavPersonIcon>사람 아이콘</NavPersonIcon>
+                <NavPersonIcon
+                src={navIcons.person}
+                alt="프로필"
+                />
             </NavBoxIcon>
         </Nav>
     );
