@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {navIcons} from '../resources/Resources'
-
+import {navIcons} from '../path/Resources'
 const Nav = styled.div`
     display:flex;
     justify-content:space-between;
@@ -26,8 +25,8 @@ const NavSearchIcon = styled.div`
     padding-right:30px;
 `;
 const NavPersonIcon = styled.img`
-  width: 26px;
-  margin-right: 9px;
+  width: 30%;
+  margin-right: 2px;
 `;
 
 
