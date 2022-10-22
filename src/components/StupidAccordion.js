@@ -8,9 +8,9 @@ const StupidAccordion = () => {
   return (
     <A.Wrapper>
       <A.HeaderWrapper onClick={() => setIsOpen(!isOpen)}>
-        I'm stupid Accordion 2222zzz
+        우성아
       </A.HeaderWrapper>
-      <RBodyWrapper isOpen={isOpen}>Body</RBodyWrapper>
+      <RBodyWrapper isOpen={isOpen}>포기해</RBodyWrapper>
     </A.Wrapper>
   );
 };

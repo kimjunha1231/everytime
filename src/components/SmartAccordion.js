@@ -7,9 +7,9 @@ const SmartAccordion = () => {
   return (
     <A.Wrapper>
       <A.HeaderWrapper onClick={() => setIsOpen(!isOpen)}>
-        I'm stupid Accordion 2222dd
+        형준
       </A.HeaderWrapper>
-      <A.BodyWrapper isOpen={isOpen}>Body</A.BodyWrapper>
+      <A.BodyWrapper isOpen={isOpen}>좀해</A.BodyWrapper>
     </A.Wrapper>
   );
 };
