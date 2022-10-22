@@ -13,9 +13,7 @@ const StyledButton = styled.button`
 function Main() {
   return (
     <StyledButton>
-      <div>기무성 바보ㅇ
-
-      </div>
+      <div>기무성 멍청이</div>
       
     </StyledButton>
 
