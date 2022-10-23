@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { navIcons } from '../path/Resources'
+import { navIcons } from '../../path/Resources'
 const Nav = styled.div`
     display:flex;
     justify-content:space-between;
@@ -30,7 +30,7 @@ const NavPersonIcon = styled.img`
 `;
 
 
-const MainPage = () => {
+const NavBar = () => {
 
     return (
         <Nav>
@@ -39,7 +39,6 @@ const MainPage = () => {
                 <NavSsu>숭실대</NavSsu>
             </NavBox>
             <NavBoxIcon>
-                
                 <NavSearchIcon
                     src={navIcons.search}
                     alt="검색"
@@ -53,5 +52,5 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default NavBar;
 
