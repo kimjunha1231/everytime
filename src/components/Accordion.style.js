@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 250px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 10px;
+  padding: 9px;
 `;
 
 export const HeaderWrapper = styled.div`
