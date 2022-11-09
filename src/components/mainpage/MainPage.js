@@ -6,7 +6,7 @@ import CardSlider from "./CardSlider";
 export default function MainPage() {
     return (
         <>
-            <NavBar/>,
+            <NavBar/>
             <CardSlider/>
         </>
 
