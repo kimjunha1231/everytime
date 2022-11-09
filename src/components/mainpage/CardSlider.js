@@ -1,54 +1,29 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { SlickIcons } from '../../path/Resources';
 
-const SlickBox = styled.div`
-    background-color:red;
-    display:flex;
-    
+
+
+const Slick = styled.img`
+  width:100%;
+  height: 500px;
+  display:flex;
 `;
 
 
-export default class CardSlider extends Component {
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 2,
-      slidesToScroll: 1
-    };
+const CardSlider = () => {
+
     return (
-      <div>
-        <h2> Single Item</h2>
-        <Slider {...settings}>
-          <SlickBox>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-          </SlickBox>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-      </div>
+      <Slick
+      src={SlickIcons.slick}
+      alt="슬릭"
+  />
     );
-  }
-}
+};
+
+export default CardSlider;
+
+
 
 
 
