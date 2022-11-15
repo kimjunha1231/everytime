@@ -58,6 +58,10 @@ const NewIcon = styled.img`
  width: 10px;
  height: 10px;
 `;
+const AnonymIcon = styled.img`
+ width: 10px;
+ height: 10px;
+`;
 const BestBoardList = styled.div`
   display: flex;
   justify-content: space-between;
@@ -91,77 +95,77 @@ const Favor = () => {
               <BoardContentTitle>자유게시판</BoardContentTitle>
               <BoardContent>2학년 2학기 끝나고 겨울방학 현장실습 가능한가요??</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>비밀게시판</BoardContentTitle>
               <BoardContent>낯 가려서 처음 만나는 자리에서는 대답 리액션안해서 그런가???</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>졸업생게시판</BoardContentTitle>
               <BoardContent>직무면접시에 의도를 제대로 파악하지 못하고 너무 간략한</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>새내기게시판</BoardContentTitle>
               <BoardContent>[가을안녕] 가을 탐방 동아리 2기 모집</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>시사·이슈</BoardContentTitle>
               <BoardContent>이태원 참사 희생자명단을 공개해야하는이유</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>장터게시판</BoardContentTitle>
               <BoardContent>원룸 구해요!!</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>정보게시판</BoardContentTitle>
               <BoardContent>11월 14일 도담식당</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>취업·진로</BoardContentTitle>
               <BoardContent>비상경 문과 취업 관련 고민!!</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>홍보게시판</BoardContentTitle>
               <BoardContent>맛집 동아리[씹.뜯.맛.즐]</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>동아리·학회</BoardContentTitle>
               <BoardContent>i-ego(아이고) 소모임 3기!!</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
           <BoardList>
             <BoardContentBox>
               <BoardContentTitle>20학번 게시판</BoardContentTitle>
               <BoardContent>아 시1발 상병이다</BoardContent>
             </BoardContentBox>
-            <NewIcon src={BoardIcon.newIcon} alt="뉴"></NewIcon>
+            <NewIcon src={BoardIcon.newIcon} alt="new"></NewIcon>
           </BoardList>
         </BoardBottom>
       </Board>
@@ -169,6 +173,7 @@ const Favor = () => {
         <BoardTitle>실시간 인기 글</BoardTitle>
         <BestBoardList>
           <BestBoardTop>
+          <AnonymIcon src={BoardIcon.anonymIcon} alt="익명"></AnonymIcon>
             <Name>익명</Name>
             <Time>11/15 13:47</Time>
           </BestBoardTop>
