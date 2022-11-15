@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { SlickIcons } from '../../path/Resources';
 
@@ -6,7 +6,8 @@ import { SlickIcons } from '../../path/Resources';
 
 const Slick = styled.img`
   width:100%;
-  height: 500px;
+  margin-top: 10px;
+  height: 300px;
   display:flex;
 `;
 

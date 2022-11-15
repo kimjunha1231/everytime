@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { navIcons } from '../../path/Resources'
 const Nav = styled.div`
     display:flex;
     justify-content:space-between;
-    align-items: center;
-    height:50px;
+
     width:100%;
 `;
 const NavBox = styled.div`
+
 `;
 const NavBoxIcon = styled.div`
     display:flex;
@@ -19,14 +19,14 @@ const NavEvery = styled.div`
     color:red;
 `;
 const NavSsu = styled.div`
-    font-size:20px;
+    font-size:18px;
     font-weight: bold;
 `;
 const NavSearchIcon = styled.img` 
-    width: 10%;
+    height: 50px;
 `;
 const NavPersonIcon = styled.img`
-  width: 10%;
+    height: 50px;
 `;
 
 
