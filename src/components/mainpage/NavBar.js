@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { navIcons } from '../../path/Resources';
-
+import { useNavigate } from "react-router-dom";
 
 
 const Nav = styled.div`
@@ -9,6 +9,7 @@ const Nav = styled.div`
     justify-content:space-between;
     position: fixed;
     top:0;
+    left: 0;
     width:100%;
     background-color: white;
     padding: 20px 0 0px 20px;
@@ -38,7 +39,7 @@ const NavPersonIcon = styled.img`
 
 
 const NavBar = () => {
-    const history = useHistory();
+    let navigate = useNavigate();
     return (
         <Nav>
             <NavBox>
@@ -51,7 +52,7 @@ const NavBar = () => {
                     alt="검색"
                 />
                 <NavPersonIcon
-                    onClick= {() => history.pushState("/")}
+                    onClick= {()=>navigate("/profile")}
                     src={navIcons.person}
                     alt="프로필"
                 />
