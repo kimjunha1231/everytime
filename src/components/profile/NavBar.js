@@ -15,7 +15,7 @@ const Nav = styled.div`
     padding: 20px 0px 10px 20px;
 `;
 const ArrowIcon = styled.img`
-    width: 23px;
+    width: 20px;
     margin-right: 20px;
 `;
 const NavTitle = styled.div`

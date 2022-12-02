@@ -5,7 +5,7 @@ import newIcon from "../img/new.png";
 import anonymIcon from "../img/anonym.png";
 import like from "../img/like.png";
 import chat from "../img/chat.png";
-import leftarrow from "../img/left-arrow.png";
+import leftarrow from "../img/leftarrow.png";
 
 
 export const navIcons = {
