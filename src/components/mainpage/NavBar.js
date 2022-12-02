@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { navIcons } from '../../path/Resources'
+import { navIcons } from '../../path/Resources';
+
+
+
 const Nav = styled.div`
     display:flex;
     justify-content:space-between;
@@ -35,7 +38,7 @@ const NavPersonIcon = styled.img`
 
 
 const NavBar = () => {
-
+    const history = useHistory();
     return (
         <Nav>
             <NavBox>
@@ -48,6 +51,7 @@ const NavBar = () => {
                     alt="검색"
                 />
                 <NavPersonIcon
+                    onClick= {() => history.pushState("/")}
                     src={navIcons.person}
                     alt="프로필"
                 />

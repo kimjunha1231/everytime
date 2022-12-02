@@ -1,10 +1,12 @@
 import React from "react";
-
-import MainPage from "./components/mainpage/MainPage"
+import AppRouter from "./Router";
+import MainIndex from "./components/mainpage/MainIndex"
 
 function App() {
   return (
-    <MainPage/>
+    <>
+      <AppRouter />
+    </>
   );
 }
 
