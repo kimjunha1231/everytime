@@ -5,11 +5,13 @@ import newIcon from "../img/new.png";
 import anonymIcon from "../img/anonym.png";
 import like from "../img/like.png";
 import chat from "../img/chat.png";
+import leftarrow from "../img/left-arrow.png";
 
 
 export const navIcons = {
    person,
-   search
+   search,
+   leftarrow
   };
 export const SlickIcons = {
    slick
