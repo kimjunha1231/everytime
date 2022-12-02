@@ -59,8 +59,8 @@ const NewIcon = styled.img`
  height: 10px;
 `;
 const AnonymIcon = styled.img`
- width: 10px;
- height: 10px;
+ 
+ height: 13px;
 `;
 const BestBoardList = styled.div`
   display: flex;
@@ -70,16 +70,24 @@ const BestBoardList = styled.div`
 const BestBoardTop = styled.div`
   display: flex;
   justify-content: space-between;
+  
   width: 100%;
 `;
 const Name = styled.div`
   font-size: 13px;
   font-weight: bold;
+  margin-left:5px;
 `;
 const Time = styled.div`
   font-size: 10px;
   font-weight: lighter;
 `;
+
+const BestBoardTitleBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Favor = () => {
 
   return (
@@ -173,8 +181,10 @@ const Favor = () => {
         <BoardTitle>실시간 인기 글</BoardTitle>
         <BestBoardList>
           <BestBoardTop>
-          <AnonymIcon src={BoardIcon.anonymIcon} alt="익명"></AnonymIcon>
-            <Name>익명</Name>
+            <BestBoardTitleBox>
+              <AnonymIcon src={BoardIcon.anonymIcon} alt="익명"></AnonymIcon>
+              <Name>익명</Name>
+            </BestBoardTitleBox>
             <Time>11/15 13:47</Time>
           </BestBoardTop>
         </BestBoardList>

@@ -4,8 +4,11 @@ import { navIcons } from '../../path/Resources'
 const Nav = styled.div`
     display:flex;
     justify-content:space-between;
-
+    position: fixed;
+    top:0;
     width:100%;
+    background-color: white;
+    padding: 20px 0 0px 20px;
 `;
 const NavBox = styled.div`
 
@@ -13,6 +16,7 @@ const NavBox = styled.div`
 const NavBoxIcon = styled.div`
     display:flex;
     justify-content:end;
+    padding-right: 30px;
 `;
 const NavEvery = styled.div`
     font-size:10px;
@@ -23,10 +27,10 @@ const NavSsu = styled.div`
     font-weight: bold;
 `;
 const NavSearchIcon = styled.img` 
-    height: 50px;
+    height: 45px;
 `;
 const NavPersonIcon = styled.img`
-    height: 50px;
+    height: 45px;
 `;
 
 

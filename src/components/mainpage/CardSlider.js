@@ -6,7 +6,7 @@ import { SlickIcons } from '../../path/Resources';
 
 const Slick = styled.img`
   width:100%;
-  margin-top: 10px;
+  margin-top: 70px;
   height: 300px;
   display:flex;
 `;
