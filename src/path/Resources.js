@@ -4,6 +4,7 @@ import slick from "../img/slick.jpg";
 import newIcon from "../img/new.png";
 import anonymIcon from "../img/anonym.png";
 import like from "../img/like.png";
+import chat from "../img/chat.png";
 
 
 export const navIcons = {
@@ -17,4 +18,5 @@ export const BoardIcon = {
    newIcon,
    anonymIcon,
    like,
+   chat,
 };

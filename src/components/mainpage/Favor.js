@@ -109,7 +109,8 @@ const BestBoardContent = styled.div`
 `;
 
 const BestBoardBottom = styled.div`
-
+  display: flex;
+  justify-content:space-between;
 `;
 
 const BestBoardContentBoardName = styled.div`
@@ -118,10 +119,18 @@ const BestBoardContentBoardName = styled.div`
   margin-top: 4px;
   color: #c7c7c7;
 `;
-const LikeIcon = styled.img`
-  width: 10px;
+const BestBoardBottomIconBox = styled.div`
+  font-size:10px;
+  display: flex;
+  align-items: flex-end;
 `;
-
+const LikeIcon = styled.img`
+  width: 11px;
+  margin-right: 10px;
+`;
+const ChatIcon = styled.img`
+  width: 11px;
+`;
 const Favor = () => {
 
   return (
@@ -227,7 +236,10 @@ const Favor = () => {
           </BestBoardCenter>
           <BestBoardBottom>
             <BestBoardContentBoardName>자유게시판</BestBoardContentBoardName>
-            <LikeIcon src={BoardIcon.like} alt="like"></LikeIcon>
+            <BestBoardBottomIconBox>
+              <LikeIcon src={BoardIcon.like} alt="like"></LikeIcon>
+              <ChatIcon src={BoardIcon.chat} alt="chat"></ChatIcon>
+            </BestBoardBottomIconBox>
           </BestBoardBottom>
         </BestBoardList>
       </Board>
