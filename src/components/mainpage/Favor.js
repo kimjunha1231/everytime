@@ -63,14 +63,12 @@ const AnonymIcon = styled.img`
  height: 13px;
 `;
 const BestBoardList = styled.div`
-  display: flex;
-  justify-content: space-between;
   margin: 20px 0 20px 0;
+  width: 100%;
 `;
 const BestBoardTop = styled.div`
   display: flex;
   justify-content: space-between;
-  
   width: 100%;
 `;
 const Name = styled.div`
@@ -86,6 +84,39 @@ const Time = styled.div`
 const BestBoardTitleBox = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const BestBoardCenter = styled.div`
+  margin-top: 10px;
+`;
+
+const BestBoardContentTitle = styled.div`
+  font-weight:bold;
+  font-size: 15px;
+
+`;
+
+const BestBoardContent = styled.div`
+  font-size: 13px;
+  margin-top: 7px;
+  width: 93%;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`;
+
+const BestBoardBottom = styled.div`
+
+`;
+
+const BestBoardContentBoardName = styled.div`
+
+  font-size: 11px;
+  margin-top: 4px;
+  color: #c7c7c7;
 `;
 
 const Favor = () => {
@@ -187,6 +218,13 @@ const Favor = () => {
             </BestBoardTitleBox>
             <Time>11/15 13:47</Time>
           </BestBoardTop>
+          <BestBoardCenter>
+            <BestBoardContentTitle>건너뛰기</BestBoardContentTitle>
+            <BestBoardContent>건너뛰기 뿐만 아니라 선거 개표 때 이의제기 순서가 바뀐 것도 어쨋든 개표를 하던 와중이나 선거를 하고 있는 와중에 알게 되었다는 거잖아</BestBoardContent>
+          </BestBoardCenter>
+          <BestBoardBottom>
+            <BestBoardContentBoardName>자유게시판</BestBoardContentBoardName>
+          </BestBoardBottom>
         </BestBoardList>
       </Board>
     </>
