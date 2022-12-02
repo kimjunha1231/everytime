@@ -118,6 +118,9 @@ const BestBoardContentBoardName = styled.div`
   margin-top: 4px;
   color: #c7c7c7;
 `;
+const LikeIcon = styled.img`
+  width: 10px;
+`;
 
 const Favor = () => {
 
@@ -224,6 +227,7 @@ const Favor = () => {
           </BestBoardCenter>
           <BestBoardBottom>
             <BestBoardContentBoardName>자유게시판</BestBoardContentBoardName>
+            <LikeIcon src={BoardIcon.like} alt="like"></LikeIcon>
           </BestBoardBottom>
         </BestBoardList>
       </Board>
