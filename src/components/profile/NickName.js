@@ -89,7 +89,19 @@ const NickName = () => {
                 <div>※ 닉네임을 설정하면 &nbsp;</div>
                 <WarningRed>30일간 변경할 수 없습니다.</WarningRed>
             </WarningBox>
-            <NickButton>닉네임설정</NickButton>
+            <NickButton 
+                onClick={()=>{
+                    if (1<username.length<11){
+                                              return;
+                    }
+                    else{
+                        <div>안돼</div>
+                    }
+                }
+            }
+            >
+                닉네임설정
+            </NickButton>
         </>
     );
 }
