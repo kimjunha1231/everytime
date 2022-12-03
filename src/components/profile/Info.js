@@ -52,6 +52,9 @@ const Content = styled.div`
 
 const Info = () => {
     let navigate = useNavigate();
+    const [username, setUsername] = useState("");
+
+
     return (
         <>
             <InfoBox>
@@ -81,7 +84,7 @@ const Info = () => {
                 <Content>이용 제한 내역</Content>
                 <Content>쪽지 설정</Content>
                 <Content>커뮤니티 이용규칙</Content>
-              
+               
             </ProfileBox>
         </>
     );
