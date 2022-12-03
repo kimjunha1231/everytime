@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { ProfileIcons } from '../../path/Resources'
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 import message from "antd/lib/message";
 
@@ -72,6 +73,7 @@ const Test = styled.div`
 const NickName = () => {
     let navigate = useNavigate();
     const [username, setUsername] = useState("");
+    const [usernamelen, setUsernamelen] = useState(0);
     const onChangeName = e => {
         setUsername(e.target.value);
     };
@@ -94,17 +96,7 @@ const NickName = () => {
                 <WarningRed>30일간 변경할 수 없습니다.</WarningRed>
             </WarningBox>
             <NickButton 
-                onClick={()=>{
-                    if (1<username.lenght<11){
-                        message.error("쌉가능")
-                        return;
-                    }
-                    else{
-                        message.error("불가능")
-                        return;
-                    }
-                }
-            }
+                onClick={()=>navigate("/Profile")}
             >
                 닉네임설정
             </NickButton>
