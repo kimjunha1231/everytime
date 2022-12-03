@@ -6,6 +6,7 @@ import anonymIcon from "../img/anonym.png";
 import like from "../img/like.png";
 import chat from "../img/chat.png";
 import leftarrow from "../img/leftarrow.png";
+import close from "../img/close.png";
 
 
 export const navIcons = {
@@ -21,4 +22,7 @@ export const BoardIcon = {
    anonymIcon,
    like,
    chat,
+};
+export const ProfileIcons = {
+   close,
 };
