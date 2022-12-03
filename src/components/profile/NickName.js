@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ProfileIcons } from '../../path/Resources'
 import { useNavigate } from "react-router-dom";
 
+import message from "antd/lib/message";
 
 const Nav = styled.div`
     padding: 20px 20px 20px 10px;
@@ -64,6 +65,9 @@ const WarningBox = styled.div`
 const WarningRed = styled.div`
     color:red;
 `;
+const Test = styled.div`
+    margin-top: 200px;
+`;
 
 const NickName = () => {
     let navigate = useNavigate();
@@ -91,11 +95,13 @@ const NickName = () => {
             </WarningBox>
             <NickButton 
                 onClick={()=>{
-                    if (1<username.length<11){
-                                              return;
+                    if (1<username.lenght<11){
+                        message.error("쌉가능")
+                        return;
                     }
                     else{
-                        <div>안돼</div>
+                        message.error("불가능")
+                        return;
                     }
                 }
             }
