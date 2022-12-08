@@ -12,7 +12,11 @@ import home from "../img/home.png";
 import school from "../img/school.png";
 import schedule from "../img/schedule.png";
 import list from "../img/list.png";
-
+import star from "../img/star.png";
+import pin from "../img/pin.png";
+import toList from "../img/tolist.png";
+import fire from "../img/fire.png";
+import trophy from "../img/trophy.png"
 
 
 export const navIcons = {
@@ -40,3 +44,12 @@ export const FooterIcons = {
    list,
    home
 };
+
+export const BoardListIcons = {
+   star,
+   pin,
+   toList,
+   fire,
+   trophy
+
+}
