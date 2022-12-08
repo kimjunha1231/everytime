@@ -1,7 +1,8 @@
 import React from "react";
 import NavBar from "./NavBar";
 import CardSlider from "./CardSlider";
-import Favor from "./Favor";
+import Favor from "./Favorites";
+import  Footer  from "./Footer";
 
 export default function MainPage() {
     return (
@@ -9,6 +10,7 @@ export default function MainPage() {
             <NavBar/>
             <CardSlider/>
             <Favor/>       
+            <Footer/>
         </>
 
     );

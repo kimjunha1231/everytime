@@ -7,6 +7,12 @@ import like from "../img/like.png";
 import chat from "../img/chat.png";
 import leftarrow from "../img/leftarrow.png";
 import close from "../img/close.png";
+import bell from "../img/bell.png";
+import home from "../img/home.png";
+import school from "../img/school.png";
+import schedule from "../img/schedule.png";
+import list from "../img/list.png";
+
 
 
 export const navIcons = {
@@ -25,4 +31,12 @@ export const BoardIcon = {
 };
 export const ProfileIcons = {
    close,
+};
+
+export const FooterIcons = {
+   bell,
+   school,
+   schedule,
+   list,
+   home
 };

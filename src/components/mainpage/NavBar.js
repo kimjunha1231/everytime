@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { navIcons } from '../../path/Resources';
 import { useNavigate } from "react-router-dom";
 
-
 const Nav = styled.div`
     display:flex;
     justify-content:space-between;
@@ -37,9 +36,9 @@ const NavPersonIcon = styled.img`
     height: 45px;
 `;
 
-
 const NavBar = () => {
     let navigate = useNavigate();
+
     return (
         <Nav>
             <NavBox>
