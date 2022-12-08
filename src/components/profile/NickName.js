@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { ProfileIcons } from '../../path/Resources'
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 
-import message from "antd/lib/message";
+import { atom,useRecoilState } from 'recoil';
+
 
 const Nav = styled.div`
     padding: 20px 20px 20px 10px;
@@ -66,14 +66,14 @@ const WarningBox = styled.div`
 const WarningRed = styled.div`
     color:red;
 `;
-const Test = styled.div`
-    margin-top: 200px;
-`;
+const textState = atom({
+    key: 'textState', 
+    default: '',
+  });
 
 const NickName = () => {
     let navigate = useNavigate();
-    const [username, setUsername] = useState("");
-    const [usernamelen, setUsernamelen] = useState(0);
+    const [username, setUsername] = useRecoilState(textState);
     const onChangeName = e => {
         setUsername(e.target.value);
     };
@@ -99,9 +99,10 @@ const NickName = () => {
                 onClick={()=>navigate("/Profile")}
             >
                 닉네임설정
+                {username}
             </NickButton>
         </>
     );
 }
 
-export default NickName;
+export default {NickName, textState};

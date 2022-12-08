@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { navIcons } from '../../path/Resources'
-import NickName from "./NickName";
+import  textState  from "./NickName";
 import { useNavigate } from "react-router-dom";
+import {
+    useRecoilValue,
+} from 'recoil';
 
 const InfoBox = styled.div`
     margin-top: 70px;
@@ -52,7 +55,7 @@ const Content = styled.div`
 
 const Info = () => {
     let navigate = useNavigate();
-    const [username, setUsername] = useState("");
+
 
 
     return (
@@ -61,10 +64,11 @@ const Info = () => {
                 <PersonIcon src={navIcons.person} alt="프로필"></PersonIcon>
                 <InfoContent>
                     <InfoId>
-                        cht8949css 재사용
+                        cht8949
                     </InfoId>
-                    <InfoName>
-                        김준하 / {NickName.username}
+                    <InfoName >
+                        김준하 / 
+
                     </InfoName>
                     <InfoName>
                         숭실대20학번
@@ -79,12 +83,12 @@ const Info = () => {
             </ProfileBox>
             <ProfileBox>
                 <Title>커뮤니티</Title>
-                <Content  onClick = {()=>navigate("/profile/NickNameChange")}>닉네임 설정</Content>
+                <Content onClick={() => navigate("/profile/NickNameChange")}>닉네임 설정</Content>
                 <Content>프로필 이미지 변경</Content>
                 <Content>이용 제한 내역</Content>
                 <Content>쪽지 설정</Content>
                 <Content>커뮤니티 이용규칙</Content>
-               
+
             </ProfileBox>
         </>
     );
