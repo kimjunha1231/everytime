@@ -66,12 +66,11 @@ const WarningBox = styled.div`
 const WarningRed = styled.div`
     color:red;
 `;
-const textState = atom({
-    key: 'textState', 
-    default: '',
+export const textState = atom({
+    key: 'textState',
+    default: []
   });
-
-const NickName = () => {
+export const NickName = () => {
     let navigate = useNavigate();
     const [username, setUsername] = useRecoilState(textState);
     const onChangeName = e => {
@@ -99,10 +98,8 @@ const NickName = () => {
                 onClick={()=>navigate("/Profile")}
             >
                 닉네임설정
-                {username}
             </NickButton>
         </>
     );
 }
 
-export default {NickName, textState};
