@@ -4,6 +4,7 @@ import Profile from "./components/profile/ProfileIndex";
 import { NickName } from "./components/profile/NickName";
 import MainPage from "./components/mainpage/MainIndex";
 import BoardList from "./components/boardlist/BoardListindex";
+import FreeBoard from "./components/board/freeBoard/FreeBoardindex";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ const Router = () => {
         <Route path="/profile/NickNameChange" element={<NickName />} exact />
         <Route path="/" element={<MainPage />} />
         <Route path="/BoardList" element={<BoardList />}/>
+        <Route path="/Board/FreeBoard" element={<FreeBoard/>}/>
       </Routes>
     </BrowserRouter>
   );

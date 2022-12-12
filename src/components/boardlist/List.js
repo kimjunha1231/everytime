@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BoardListIcons, BoardIcon } from "../../path/Resources";
+import { useNavigate } from "react-router-dom";
 
 const BoardListBox = styled.div`
     border: 1.2px solid #e3e3e3;
@@ -28,6 +29,7 @@ const NewIcon = styled.img`
 
 
 const List = () => {
+    let navigate = useNavigate();
     return (
         <>
             <BoardListBox>
@@ -54,9 +56,9 @@ const List = () => {
                 </BoardBox>
             </BoardListBox>
             <BoardListBox style={{ margin: "30px 0 60px 0" }}>
-                <BoardBox >
+                <BoardBox onClick={()=>navigate("/board/freeBoard")}>
                     <BoardListIcon src={BoardListIcons.pin}></BoardListIcon>
-                    <BoardTitle>자유게시판 게시판</BoardTitle>
+                    <BoardTitle>자유게시판</BoardTitle>
                     <NewIcon src= {BoardIcon.newIcon}></NewIcon>
                 </BoardBox>
                 <BoardBox >
