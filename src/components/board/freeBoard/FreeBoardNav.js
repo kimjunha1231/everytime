@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { navIcons } from "../../../path/Resources";
 import { atom,useRecoilState } from 'recoil';
@@ -11,6 +11,7 @@ const NavBox = styled.div`
     padding: 20px 0 0 20px;
     display: flex;
     align-items: center;
+    z-index: 0;
 `;
 const LeftIcon = styled.img`
     height: 25px;
@@ -36,32 +37,32 @@ const EtcIcon = styled.img`
     height: 20px;
 `;
 const EtcList = styled.div`
-    background-color: red;
+    background-color: white;
     position: absolute;
+    top: 0%;
     right: 0;
-    padding: 20px;
-    
+    padding: 10px 20px 10px 20px;
+    margin: 10px 15px 0 0;
+
+    border: 1px solid #ededed;
+    z-index: 1;
 `;
 const EtcContent = styled.div`
-    font-size:20px;
+    font-size:18px;
+    margin: 20px 0;
 `;
 export const etcstate = atom({
     key: 'etcstate',
     default: false,
   });
 export const FreeBoardNav = () => {
-    const etcRef = useRef();
     const [etcOpen, setEtcOpen] = useRecoilState(etcstate);
     const EtcMode = () => {
         setEtcOpen(!etcOpen)
     }
-    const closeEtc = e =>{
-        if(etcRef.current === e.target) {
-            setEtcOpen(false)
-        }
-    }
+
     return (
-        <NavBox ref={etcRef} onClick={closeEtc}>
+        <NavBox >
             <LeftIcon src={navIcons.leftarrow} alt="나가기" />
             <NavTextBox>
                 <NavTitle>자유게시판</NavTitle>
@@ -72,6 +73,7 @@ export const FreeBoardNav = () => {
             {etcOpen && <EtcList >
                 <EtcContent>새로고침</EtcContent>
                 <EtcContent>글 쓰기</EtcContent>
+                <EtcContent>즐겨찾기에서 삭제</EtcContent>
             </EtcList>}
 
         </NavBox>

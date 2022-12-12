@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { useSetRecoilState } from "recoil";
+import React, { useRef, useEffect } from "react";
+import { useRecoilState } from "recoil";
 import { etcstate, FreeBoardNav } from "./FreeBoardNav";
 import styled from "styled-components";
 
@@ -7,16 +7,24 @@ const Back = styled.div`
 `;
 
 const FreeBoard = () => {
-    const close = useSetRecoilState(etcstate);
+    const [close, setclose] = useRecoilState(etcstate);
+    useEffect(() => {
+        const clickOutside = (e) => {
+            if (close && etcRef.current && !etcRef.current.contains(e.target)) {
+                setclose(false);
+            }
+        };
+
+        document.addEventListener("mousedown", clickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", clickOutside);
+        };
+    }, );
     const etcRef = useRef();
-    const closeEtc = e => {
-        if (etcRef.current === e.target) {
-            close(false)
-        }
-    }
     return (
-        <Back ref={etcRef} onClick={closeEtc}>
-            <FreeBoardNav />
+        <Back ref={etcRef}>
+            <FreeBoardNav   />
         </Back>
 
     );
