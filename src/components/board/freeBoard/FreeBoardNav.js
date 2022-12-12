@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { navIcons } from "../../../path/Resources";
+import { atom,useRecoilState } from 'recoil';
 
 const NavBox = styled.div`
     position: fixed;
@@ -17,6 +18,7 @@ const LeftIcon = styled.img`
 `;
 const SearchIcon = styled.img`
     height: 45px;
+    margin-right: 10px;
 `;
 const NavTitle = styled.div`
     font-size: 12px;
@@ -24,24 +26,55 @@ const NavTitle = styled.div`
     margin-bottom: 4px;
 `;
 const NavTextBox = styled.div`
-   margin-right: 200px;
+   margin-right: 210px;
 `;
 const NavSchool = styled.div`
     font-size: 10px;
     color:#cbcbcb;
 `;
-
-const FreeBoardNav = () => {
+const EtcIcon = styled.img`
+    height: 20px;
+`;
+const EtcList = styled.div`
+    background-color: red;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    
+`;
+const EtcContent = styled.div`
+    font-size:20px;
+`;
+export const etcstate = atom({
+    key: 'etcstate',
+    default: false,
+  });
+export const FreeBoardNav = () => {
+    const etcRef = useRef();
+    const [etcOpen, setEtcOpen] = useRecoilState(etcstate);
+    const EtcMode = () => {
+        setEtcOpen(!etcOpen)
+    }
+    const closeEtc = e =>{
+        if(etcRef.current === e.target) {
+            setEtcOpen(false)
+        }
+    }
     return (
-        <NavBox>
-            <LeftIcon src={navIcons.leftarrow} alt="나가기"/>
+        <NavBox ref={etcRef} onClick={closeEtc}>
+            <LeftIcon src={navIcons.leftarrow} alt="나가기" />
             <NavTextBox>
                 <NavTitle>자유게시판</NavTitle>
                 <NavSchool>숭실대</NavSchool>
             </NavTextBox>
-            <SearchIcon src={navIcons.search} alt="검색"/>
+            <SearchIcon src={navIcons.search} alt="검색" />
+            <EtcIcon onClick={EtcMode} src={navIcons.etc} alt="기타" />
+            {etcOpen && <EtcList >
+                <EtcContent>새로고침</EtcContent>
+                <EtcContent>글 쓰기</EtcContent>
+            </EtcList>}
+
         </NavBox>
     );
 };
 
-export default FreeBoardNav;

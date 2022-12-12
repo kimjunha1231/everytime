@@ -1,12 +1,25 @@
-import React from "react";
-import FreeBoardNav from "./FreeBoardNav";
+import React, { useRef } from "react";
+import { useSetRecoilState } from "recoil";
+import { etcstate, FreeBoardNav } from "./FreeBoardNav";
+import styled from "styled-components";
 
-export default function FreeBoard() {
+const Back = styled.div`
+`;
+
+const FreeBoard = () => {
+    const close = useSetRecoilState(etcstate);
+    const etcRef = useRef();
+    const closeEtc = e => {
+        if (etcRef.current === e.target) {
+            close(false)
+        }
+    }
     return (
-        <>
-           <FreeBoardNav/>
-        </>
+        <Back ref={etcRef} onClick={closeEtc}>
+            <FreeBoardNav />
+        </Back>
 
     );
 
 }
+export default FreeBoard;

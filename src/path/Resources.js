@@ -17,12 +17,13 @@ import pin from "../img/pin.png";
 import toList from "../img/tolist.png";
 import fire from "../img/fire.png";
 import trophy from "../img/trophy.png"
-
+import etc from "../img/etc.png"
 
 export const navIcons = {
    person,
    search,
-   leftarrow
+   leftarrow,
+   etc
   };
 export const SlickIcons = {
    slick

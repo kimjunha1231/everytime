@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+
 
 const Nav = styled.div`
     display: felx;
@@ -18,8 +18,6 @@ const NavList = styled.div`
 `;
 
 const NavBar = () => {
-    let navigate = useNavigate();
-
     return (
         <Nav>
             <NavList>게시판</NavList>
