@@ -11,7 +11,7 @@ const NavBox = styled.div`
     padding: 20px 0 0 20px;
     display: flex;
     align-items: center;
-    z-index: 0;
+
 `;
 const LeftIcon = styled.img`
     height: 25px;
@@ -40,12 +40,12 @@ const EtcList = styled.div`
     background-color: white;
     position: absolute;
     top: 0%;
+    width: 40%;
     right: 0;
     padding: 10px 20px 10px 20px;
     margin: 10px 15px 0 0;
-
     border: 1px solid #ededed;
-    z-index: 1;
+    
 `;
 const EtcContent = styled.div`
     font-size:18px;
@@ -70,12 +70,11 @@ export const FreeBoardNav = () => {
             </NavTextBox>
             <SearchIcon src={navIcons.search} alt="검색" />
             <EtcIcon onClick={EtcMode} src={navIcons.etc} alt="기타" />
-            {etcOpen && <EtcList >
+            {etcOpen && <EtcList>
                 <EtcContent>새로고침</EtcContent>
                 <EtcContent>글 쓰기</EtcContent>
                 <EtcContent>즐겨찾기에서 삭제</EtcContent>
             </EtcList>}
-
         </NavBox>
     );
 };
