@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { navIcons } from "../../../path/Resources";
-import { atom,useRecoilState } from 'recoil';
+import { atom, useRecoilState } from 'recoil';
+import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
 const NavBox = styled.div`
     position: fixed;
@@ -36,45 +38,29 @@ const NavSchool = styled.div`
 const EtcIcon = styled.img`
     height: 20px;
 `;
-const EtcList = styled.div`
-    background-color: white;
-    position: absolute;
-    top: 0%;
-    width: 40%;
-    right: 0;
-    padding: 10px 20px 10px 20px;
-    margin: 10px 15px 0 0;
-    border: 1px solid #ededed;
-    
-`;
-const EtcContent = styled.div`
-    font-size:18px;
-    margin: 20px 0;
-`;
+
 export const etcstate = atom({
     key: 'etcstate',
     default: false,
-  });
+});
 export const FreeBoardNav = () => {
     const [etcOpen, setEtcOpen] = useRecoilState(etcstate);
     const EtcMode = () => {
         setEtcOpen(!etcOpen)
     }
-
+    const navigate = useNavigate();
     return (
         <NavBox >
-            <LeftIcon src={navIcons.leftarrow} alt="나가기" />
+            <LeftIcon onClick={() => navigate(-1)} src={navIcons.leftarrow} alt="나가기" />
             <NavTextBox>
                 <NavTitle>자유게시판</NavTitle>
                 <NavSchool>숭실대</NavSchool>
             </NavTextBox>
             <SearchIcon src={navIcons.search} alt="검색" />
             <EtcIcon onClick={EtcMode} src={navIcons.etc} alt="기타" />
-            {etcOpen && <EtcList>
-                <EtcContent>새로고침</EtcContent>
-                <EtcContent>글 쓰기</EtcContent>
-                <EtcContent>즐겨찾기에서 삭제</EtcContent>
-            </EtcList>}
+            {etcOpen &&
+                <Modal></Modal>}
+
         </NavBox>
     );
 };
