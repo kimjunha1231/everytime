@@ -5,7 +5,6 @@ import styled from "styled-components";
 import FreeBoardList from "./FreeBoardList";
 
 const Back = styled.div`
-
 `;
 
 const FreeBoard = () => {
