@@ -66,13 +66,13 @@ const WarningBox = styled.div`
 const WarningRed = styled.div`
     color:red;
 `;
-export const textState = atom({
-    key: 'textState',
-    default: []
+export const nameState = atom({
+    key: 'nameState',
+    default: ["주나"]
   });
 export const NickName = () => {
     let navigate = useNavigate();
-    const [username, setUsername] = useRecoilState(textState);
+    const [username, setUsername] = useRecoilState(nameState);
     const onChangeName = e => {
         setUsername(e.target.value);
     };

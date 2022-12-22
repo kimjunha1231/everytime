@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BoardIcon } from '../../path/Resources';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -55,12 +56,12 @@ const BoardContentBox = styled.div`
   overflow: :hidden;
 `;
 const NewIcon = styled.img`
- width: 10px;
- height: 10px;
+  width: 10px;
+  height: 10px;
 `;
 const AnonymIcon = styled.img`
  
- height: 13px;
+  height: 13px;
 `;
 const BestBoardList = styled.div`
   margin: 20px 0 20px 0;
@@ -132,13 +133,14 @@ const ChatIcon = styled.img`
   width: 11px;
 `;
 const Favor = () => {
+  let navigate = useNavigate();
 
   return (
     <>
       <Board>
         <BoardTop>
           <BoardTitle>즐겨찾는 게시판</BoardTitle>
-          <ViewMore>더보기 ></ViewMore>
+          <ViewMore onClick={() => navigate("/Board/FreeBoard")}>더보기 ></ViewMore>
         </BoardTop>
         <BoardBottom>
           <BoardList>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { navIcons } from '../../path/Resources'
-import  { textState }  from "./NickName";
+import { nameState } from "./NickName";
 import { useNavigate } from "react-router-dom";
 import {
     useRecoilValue,
@@ -54,8 +54,8 @@ const Content = styled.div`
 
 
 const Info = () => {
-    let navigate = useNavigate();   
-    const name = useRecoilValue(textState)
+    let navigate = useNavigate();
+    const name = useRecoilValue(nameState)
 
 
     return (
