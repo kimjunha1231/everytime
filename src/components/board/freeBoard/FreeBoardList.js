@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useRecoilValue } from 'recoil';
 import { nameState } from "../../profile/NickName";
 
+
 const Box = styled.div`
     margin-top: 100px;
     display: flex;
@@ -26,11 +27,16 @@ const NickName = styled.div`
 
 
 const FreeBoardList = () => {
-    const name = useRecoilValue(nameState)
+    const name = useRecoilValue(nameState);
+
+   
     return (
         <Box>
             <Title>결석 1-2번 하면</Title>
             <Content>힘든가용</Content>
+            <moment format="YYYY/MM/DD">
+                1976-04-19T12:59-0500
+            </moment>
             <NickName>{name}</NickName>
         </Box>
     );
