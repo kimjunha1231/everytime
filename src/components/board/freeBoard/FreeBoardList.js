@@ -4,6 +4,8 @@ import { useRecoilValue } from 'recoil';
 import { nameState } from "../../profile/NickName";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
+import moment from "moment/moment";
+
 
 const Box = styled.div`
     margin-top: 100px;
@@ -39,23 +41,25 @@ const WritingButton = styled.div`
 `;
 
 
-const FreeBoardList = () => {
+const FreeBoardList = (date) => {
     const name = useRecoilValue(nameState);
     const navigate = useNavigate();
-    const nowTime = Date.now(),
-        startTime = new Date("2020-08-23T16:00");
+    const start =moment().format(' DO YY, h:mm:ss a');
+    const end = new Date();
+
 
     return (
         <>
             <Box>
                 <Title>결석 1-2번 하면</Title>
                 <Content>힘든가용</Content>
-                <Moment fromNow>{startTime}</Moment>
+                <div>{start}</div>
                 <NickName>{name}</NickName>
             </Box>
             <WritingButton onClick={() => navigate("/Board/FreeBoard/Writing")}>글쓰기</WritingButton>
         </>
     );
-};
+
+}
 
 export default FreeBoardList;
