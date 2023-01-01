@@ -17,17 +17,12 @@ export const timeState = atom({
 export const Writing = () => {
     const [nowTime, setNowTime] = useRecoilState(timeState);
     const navigate = useNavigate();
-    const onChangeTime = setNowTime(new Date(Date.now()))
-    const dateA = new Date(nowTime);
-    const dateB = Date.now();
-    const diffMSec = dateA.getTime() - dateB.getTime();
-    const diffDate = diffMSec / (24 * 60 * 60 * 1000);
-
+    const onChangeTime = setNowTime(Date.now()-nowTime)
 
     return (
         <>
             <Test onClick={() => navigate("/Board/FreeBoard")} onChange={onChangeTime}>작43성완료</Test>
-            <diffDate></diffDate>
+            <div>{nowTime}</div>
         </>
     )
 }

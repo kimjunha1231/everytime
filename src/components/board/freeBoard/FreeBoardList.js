@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, atom, useRecoilState } from 'recoil';
 import { nameState } from "../../profile/NickName";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
@@ -39,13 +39,20 @@ const WritingButton = styled.div`
     right: 0;
     
 `;
+export const timeState = atom({
+    key: 'timeState',
+    default: []
+});
 
-
-const FreeBoardList = (date) => {
+const Test = styled.div`
+    width: 50%;
+    border: 1px solid #d3d3d3;
+`;
+const FreeBoardList = () => {
     const name = useRecoilValue(nameState);
     const navigate = useNavigate();
-    const start =moment().format(' DO YY, h:mm:ss a');
-    const end = new Date();
+    const [nowTime, setNowTime] = useRecoilState(timeState);
+    const onChangeTime = setNowTime(Date.now() - nowTime)
 
 
     return (
@@ -53,7 +60,8 @@ const FreeBoardList = (date) => {
             <Box>
                 <Title>결석 1-2번 하면</Title>
                 <Content>힘든가용</Content>
-                <div>{start}</div>
+                <Test onClick={() => navigate("/Board/FreeBoard")} onChange={onChangeTime}>작43성완료</Test>
+                
                 <NickName>{name}</NickName>
             </Box>
             <WritingButton onClick={() => navigate("/Board/FreeBoard/Writing")}>글쓰기</WritingButton>
