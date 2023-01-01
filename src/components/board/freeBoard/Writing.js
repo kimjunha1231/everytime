@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { atom, useRecoilState } from "recoil";
-import Moment from 'react-moment';
 import { useNavigate } from "react-router-dom";
 
 
@@ -18,12 +17,17 @@ export const timeState = atom({
 export const Writing = () => {
     const [nowTime, setNowTime] = useRecoilState(timeState);
     const navigate = useNavigate();
-    const onChangeTime = setNowTime(Date.now())
-    const tt = Date.now()- nowTime;
+    const onChangeTime = setNowTime(new Date(Date.now()))
+    const dateA = new Date(nowTime);
+    const dateB = Date.now();
+    const diffMSec = dateA.getTime() - dateB.getTime();
+    const diffDate = diffMSec / (24 * 60 * 60 * 1000);
+
+
     return (
         <>
-            <Test onClick={()=> navigate("/Board/FreeBoard")} onChange={onChangeTime}>작43성완료</Test>
-            <div>{tt}</div>
+            <Test onClick={() => navigate("/Board/FreeBoard")} onChange={onChangeTime}>작43성완료</Test>
+            <diffDate></diffDate>
         </>
     )
 }
