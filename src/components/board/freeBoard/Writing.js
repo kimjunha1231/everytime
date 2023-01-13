@@ -1,28 +1,61 @@
 import React from "react";
 import styled from "styled-components";
-import { atom, useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
+import { ProfileIcons } from "../../../path/Resources";
 
-
-const Test = styled.div`
-    width: 50%;
-    border: 1px solid #d3d3d3;
+const CloseIcon = styled.img`
+    width: 15px;
+    margin-left: 10px;
+    margin-right: 20px;
 `;
 
-export const timeState = atom({
-    key: 'timeState',
-    default: []
-});
+const NavBar = styled.div`
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    padding: 20px 0 0 20px;
+    display: flex;
+    align-items: center;
+
+`;
+const NavTitle = styled.div`
+    font-size: 20px;
+    font-weight: 700;
+`;
+
+const TitleBox = styled.input`
+  width: 50%;
+  margin: 15px 0px 
+  background-color: #f2f2f2;
+  border: none;
+  border-bottom: 2px solid ;
+  padding: 0px 0px 10px 10px;
+  color: white;
+  outline: none;
+  font-size: 15px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  ::placeholder {
+    color: white;
+  }
+`;
 
 export const Writing = () => {
-    const [nowTime, setNowTime] = useRecoilState(timeState);
     const navigate = useNavigate();
-    const onChangeTime = setNowTime(Date.now()-nowTime)
 
     return (
         <>
-            <Test onClick={() => navigate("/Board/FreeBoard")} onChange={onChangeTime}>작43성완료</Test>
-            <div>{nowTime}</div>
+            <NavBar>
+                <CloseIcon onClick={() => navigate(-1)} src={ProfileIcons.close} alt="나가기"></CloseIcon>
+                <NavTitle>글 쓰기</NavTitle>
+            </NavBar>
+            <TitleBox type="title"
+                placeholder="제목"
+
+                disabled={false}
+
+            />
         </>
     )
 }

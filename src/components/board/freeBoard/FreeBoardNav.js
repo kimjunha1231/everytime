@@ -51,7 +51,7 @@ export const FreeBoardNav = () => {
     const navigate = useNavigate();
     return (
         <NavBox >
-            <LeftIcon onClick={() => navigate(-1)} src={navIcons.leftarrow} alt="나가기" />
+            <LeftIcon onClick={() => navigate("/")} src={navIcons.leftarrow} alt="나가기" />
             <NavTextBox>
                 <NavTitle>자유게시판</NavTitle>
                 <NavSchool>숭실대</NavSchool>
