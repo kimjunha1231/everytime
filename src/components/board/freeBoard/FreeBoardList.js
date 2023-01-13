@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-
+import {
+    useRecoilValue,
+} from 'recoil';
 import { useNavigate } from "react-router-dom";
+import { contentState, titleState, idState } from "./Writing";
+import { useState } from "react";
 
 
 
@@ -39,15 +43,22 @@ const Test = styled.div`
 `;
 const FreeBoardList = () => {
     const navigate = useNavigate();
+    const title = useRecoilValue(titleState)
+    const content = useRecoilValue(contentState)
+    const nextId = useRecoilValue(idState)
+    const [list, setList] = useState([
+        {id:{nextId}, title: {title}, body: {content}}
+
+    ])
+
 
     return (
         <>
             <Box>
-                <Title>결석 1-2번 하면</Title>
-                <Content>힘든가용</Content>
+                <Title>{title}</Title>
+                <Content>{content}</Content>
+
                 <Test onClick={() => navigate("/Board/FreeBoard")} >작43성완료</Test>
-                
-            
             </Box>
             <WritingButton onClick={() => navigate("/Board/FreeBoard/Writing")}>글쓰기</WritingButton>
         </>
