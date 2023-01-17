@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { ProfileIcons } from "../../../path/Resources";
 import { atom, useRecoilState, useSetRecoilState } from 'recoil';
 import { useState } from "react";
+import { UserLists } from "./UserList";
+import FreeBoardList from "./FreeBoardList";
 
 const CloseIcon = styled.img`
     width: 15px;
@@ -63,54 +65,70 @@ const ContentBox = styled.input`
         color: #bdbdbd;
   }
 `;
-export const titleState = atom({
-    key: 'titleState',
-    default: ["무요"]
-});
-export const contentState = atom({
-    key: 'contentState',
-    default: ["무요"]
-});
-export const idState = atom({
-    key: 'idState',
-    default: 1,
-});
-
-export const listState = atom({
-    key: "listState",
-    default: [{
-        id: 1,
-        title: 'velopert',
-        content: 'public.velopert@gmail.com',
-    },],
-})
 
 
-export const Writing = (onCreate) => {
+const Writing = () => {
     const navigate = useNavigate();
-    const [title, setTitle] = useRecoilState(titleState);
-    const [content, setContent] = useRecoilState(contentState);
+    const nextId = useState(1)
+    const [list, setList] = useState({
+        title: '',
+        content: '',
+    })
+    const { title, content } = list;
 
+    const onChange = e => {
+        const { name, value } = e.target;
+
+        setList({
+            ...list,
+            [name]: value,
+        });
+    };
+    const [users, setUsers] = useState([
+        {
+            id: 1,
+            title: 'velopert',
+            content: 'public.velopert@gmail.com',
+        },
+    ]);
+    const onCreate = () => {
+        const user = {
+            id: nextId.current,
+            title,
+            content,
+        };
+        setUsers(users.concat(user));
+
+        setList({
+            title: '',
+            content: '',
+        });
+
+        nextId.current += 1;
+    };
     return (
         <>
             <NavBar>
                 <CloseIcon onClick={() => navigate(-1)} src={ProfileIcons.close} alt="나가기"></CloseIcon>
                 <NavTitle>글 쓰기 </NavTitle>
-                <CompleteButton onClick={() => navigate(-1)} onCreate={onCreate}>완료</CompleteButton>
+                <CompleteButton onClick={() => { onCreate(); }} >완료</CompleteButton>
             </NavBar>
             <WritingBox>
                 <TitleBox
-                    type="title"
-                    onChange={(e) => setTitle(e.target.value)}
+                    name="title"
+                    onChange={onChange}
+                    value={title}
                     placeholder="제목"
                 />
                 <ContentBox
-                    type="content"
-                    onChange={(e) => setContent(e.target.value)}
+                    name="content"
+                    onChange={onChange}
+                    value={content}
                     placeholder="내용을 입력하세요."
                 />
+                <UserLists users={users} />
             </WritingBox>
         </>
     )
 }
-
+export default Writing;
