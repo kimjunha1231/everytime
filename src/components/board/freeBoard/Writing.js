@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProfileIcons } from "../../../path/Resources";
-import { atom, useRecoilState } from 'recoil';
+import { atom, useRecoilState, useSetRecoilState } from 'recoil';
 import { useState } from "react";
 
 const CloseIcon = styled.img`
@@ -73,31 +73,38 @@ export const contentState = atom({
 });
 export const idState = atom({
     key: 'idState',
-    default: 0
+    default: 1,
 });
 
-export const Writing = () => {
+export const listState = atom({
+    key: "listState",
+    default: [{
+        id: 1,
+        title: 'velopert',
+        content: 'public.velopert@gmail.com',
+    },],
+})
+
+
+export const Writing = (onCreate) => {
     const navigate = useNavigate();
     const [title, setTitle] = useRecoilState(titleState);
     const [content, setContent] = useRecoilState(contentState);
-    const [nextId, setNextId] = useState(0);
-   
-    
 
     return (
         <>
             <NavBar>
                 <CloseIcon onClick={() => navigate(-1)} src={ProfileIcons.close} alt="나가기"></CloseIcon>
                 <NavTitle>글 쓰기 </NavTitle>
-                <CompleteButton onClick={() => navigate(-1)} onChange={()=>setNextId(nextId+1)}>완료</CompleteButton>
+                <CompleteButton onClick={() => navigate(-1)} onCreate={onCreate}>완료</CompleteButton>
             </NavBar>
             <WritingBox>
-                <TitleBox 
+                <TitleBox
                     type="title"
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="제목"
                 />
-                <ContentBox 
+                <ContentBox
                     type="content"
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="내용을 입력하세요."
