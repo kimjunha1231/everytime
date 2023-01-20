@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ProfileIcons } from "../../../path/Resources";
 import { atom, useRecoilState, useSetRecoilState } from 'recoil';
 import { useState } from "react";
-import { UserLists } from "./UserList";
+import  UserList  from "./UserList";
 import FreeBoardList from "./FreeBoardList";
 
 const CloseIcon = styled.img`
@@ -126,7 +126,7 @@ const Writing = () => {
                     value={content}
                     placeholder="내용을 입력하세요."
                 />
-                <UserLists users={users} />
+                <UserList users={users} />
             </WritingBox>
         </>
     )
