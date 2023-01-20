@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { ProfileIcons } from "../../../path/Resources";
 import { atom, useRecoilState, useSetRecoilState } from 'recoil';
 import { useState } from "react";
-import  UserList  from "./UserList";
+import UserList from "./UserList";
 import FreeBoardList from "./FreeBoardList";
+import { set } from "react-hook-form";
 
 const CloseIcon = styled.img`
     width: 15px;
@@ -71,63 +72,43 @@ const Writing = () => {
     const navigate = useNavigate();
     const nextId = useState(1)
     const [list, setList] = useState({
+        id: 1,
         title: '',
         content: '',
     })
-    const { title, content } = list;
-
-    const onChange = e => {
+    const [viewContent, setViewContent] = useState([]);
+    const getValue = e => {
         const { name, value } = e.target;
-
         setList({
             ...list,
-            [name]: value,
-        });
-    };
-    const [users, setUsers] = useState([
-        {
-            id: 1,
-            title: 'velopert',
-            content: 'public.velopert@gmail.com',
-        },
-    ]);
-    const onCreate = () => {
-        const user = {
-            id: nextId.current,
-            title,
-            content,
-        };
-        setUsers(users.concat(user));
-
-        setList({
-            title: '',
-            content: '',
-        });
-
-        nextId.current += 1;
-    };
+            [name]:value
+        })
+    }
+  
     return (
         <>
             <NavBar>
                 <CloseIcon onClick={() => navigate(-1)} src={ProfileIcons.close} alt="나가기"></CloseIcon>
                 <NavTitle>글 쓰기 </NavTitle>
-                <CompleteButton onClick={() => { onCreate(); }} >완료</CompleteButton>
+                <CompleteButton onClick={()=> setViewContent(viewContent.concat({...list}))}>완료</CompleteButton>
             </NavBar>
             <WritingBox>
                 <TitleBox
-                    name="title"
-                    onChange={onChange}
-                    value={title}
+                    type="text"
                     placeholder="제목"
+                    onChange={getValue}
+                    name='title'
                 />
                 <ContentBox
-                    name="content"
-                    onChange={onChange}
-                    value={content}
-                    placeholder="내용을 입력하세요."
                 />
-                <UserList users={users} />
             </WritingBox>
+            {viewContent.map(list =>
+                <div>
+                    <h2>{ellment.tilte}</h2>
+                </div>
+                
+                )}
+   
         </>
     )
 }
