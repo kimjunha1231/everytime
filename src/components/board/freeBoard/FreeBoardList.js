@@ -1,12 +1,7 @@
 import styled from "styled-components";
-import {
-    useRecoilValue,
 
-} from 'recoil';
 import { useNavigate } from "react-router-dom";
 import React, { useRef, useState } from 'react';
-import UserList from './UserList';
-import Writing from "./Writing";
 
 
 
@@ -44,16 +39,12 @@ const Test = styled.div`
     border: 1px solid #d3d3d3;
 `;
 
-const FreeBoardList = (list) => {
+const FreeBoardList = () => {
     const navigate = useNavigate();
 
     return (
         <>
             <Box>
-               
-        
-           
-
                 <Test onClick={() => navigate("/Test")} >작43성완료</Test>
             </Box>
             <WritingButton onClick={() => navigate("/Board/FreeBoard/Writing")}>글쓰기</WritingButton>

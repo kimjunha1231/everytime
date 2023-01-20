@@ -5,7 +5,7 @@ import { NickName } from "./components/profile/NickName";
 import MainPage from "./components/mainpage/MainIndex";
 import BoardList from "./components/boardlist/BoardListindex";
 import FreeBoard from "./components/board/freeBoard/FreeBoardindex";
-import Writing from "./components/board/freeBoard/Writing";
+import {Writing} from "./components/board/freeBoard/Writing";
 
 const Router = () => {
   return (

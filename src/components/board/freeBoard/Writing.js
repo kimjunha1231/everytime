@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProfileIcons } from "../../../path/Resources";
-import { atom, useRecoilState, useSetRecoilState } from 'recoil';
-import { useState } from "react";
-import UserList from "./UserList";
+import { useState, useRef } from "react";
 import FreeBoardList from "./FreeBoardList";
-import { set } from "react-hook-form";
+import { atom } from "recoil";
+import { useRecoilState } from "recoil";
+import UserList from "./UserList";
+
 
 const CloseIcon = styled.img`
     width: 15px;
@@ -66,50 +67,69 @@ const ContentBox = styled.input`
         color: #bdbdbd;
   }
 `;
+export const listState = atom({
+    key: 'listState',
+    default: [{
+        title: "",
+        content: "",
+    }]
+});
 
-
-const Writing = () => {
+export const Writing = () => {
     const navigate = useNavigate();
-    const nextId = useState(1)
-    const [list, setList] = useState({
-        id: 1,
-        title: '',
-        content: '',
-    })
-    const [viewContent, setViewContent] = useState([]);
+    const nextId = useRef(1)
+    const [list, setList] = useRecoilState(listState)
+    const { title, content } = list;
     const getValue = e => {
         const { name, value } = e.target;
         setList({
             ...list,
-            [name]:value
+            [name]: value
         })
     }
-  
+    const [users, setUsers] = useState([
+        {
+            id: "",
+            title: '',
+            content: ''
+        }
+    ]);
+    const onCreate = () => {
+        const user = {
+            id: nextId.current,
+            title,
+            content,
+        }
+        setUsers([...users, user])
+        setList({
+            title: '',
+            content: ''
+        })
+        nextId.current += 1;
+    }
+
     return (
         <>
             <NavBar>
                 <CloseIcon onClick={() => navigate(-1)} src={ProfileIcons.close} alt="나가기"></CloseIcon>
                 <NavTitle>글 쓰기 </NavTitle>
-                <CompleteButton onClick={()=> setViewContent(viewContent.concat({...list}))}>완료</CompleteButton>
+                <CompleteButton onClick={onCreate}>완료</CompleteButton>
             </NavBar>
             <WritingBox>
                 <TitleBox
-                    type="text"
+                    name="title"
                     placeholder="제목"
                     onChange={getValue}
-                    name='title'
+                    value={title}
                 />
                 <ContentBox
+                    name="content"
+                    placeholder="내용"
+                    onChange={getValue}
+                    value={content}
                 />
             </WritingBox>
-            {viewContent.map(list =>
-                <div>
-                    <h2>{ellment.tilte}</h2>
-                </div>
-                
-                )}
-   
+            <UserList users={users} />
         </>
     )
 }
-export default Writing;
