@@ -9,6 +9,7 @@ import { useRecoilState } from "recoil";
 import UserList from "./UserList";
 
 
+
 const CloseIcon = styled.img`
     width: 15px;
     margin-right: 20px;
@@ -110,6 +111,7 @@ export const Writing = () => {
 
     return (
         <>
+        
             <NavBar>
                 <CloseIcon onClick={() => navigate(-1)} src={ProfileIcons.close} alt="나가기"></CloseIcon>
                 <NavTitle>글 쓰기 </NavTitle>
@@ -129,6 +131,7 @@ export const Writing = () => {
                     value={content}
                 />
             </WritingBox>
+            
             <UserList users={users} />
         </>
     )
