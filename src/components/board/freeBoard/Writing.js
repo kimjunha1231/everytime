@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ProfileIcons } from "../../../path/Resources";
 import { useState, useRef } from "react";
 import FreeBoardList from "./FreeBoardList";
-import { atom } from "recoil";
+import { atom, RecoilValueReadOnly } from "recoil";
 import { useRecoilState } from "recoil";
 import UserList from "./UserList";
 
@@ -71,30 +71,26 @@ const ContentBox = styled.input`
 export const listState = atom({
     key: 'listState',
     default: [{
-        title: "",
-        content: "",
+        id: 0,
+        title: '',
+        content: ''
     }]
 });
 
 export const Writing = () => {
     const navigate = useNavigate();
-    const nextId = useRef(1)
-    const [list, setList] = useRecoilState(listState)
+    const nextId = useRef(0)
+    const [list, setList] = useState({
+        title:'',
+        content:''
+    })
     const { title, content } = list;
     const getValue = e => {
         const { name, value } = e.target;
-        setList({
-            ...list,
-            [name]: value
-        })
+        setList({ ...list, [name]: value })      
     }
-    const [users, setUsers] = useState([
-        {
-            id: "",
-            title: '',
-            content: ''
-        }
-    ]);
+    
+    const [users, setUsers] = useRecoilState(listState)
     const onCreate = () => {
         const user = {
             id: nextId.current,
@@ -102,20 +98,18 @@ export const Writing = () => {
             content,
         }
         setUsers([...users, user])
-        setList({
-            title: '',
-            content: ''
-        })
+        setList(users)
         nextId.current += 1;
+        
     }
 
     return (
         <>
-        
+
             <NavBar>
                 <CloseIcon onClick={() => navigate(-1)} src={ProfileIcons.close} alt="나가기"></CloseIcon>
                 <NavTitle>글 쓰기 </NavTitle>
-                <CompleteButton onClick={onCreate}>완료</CompleteButton>
+                <CompleteButton onClick={() => { navigate(-1); onCreate(); }}>완료</CompleteButton>
             </NavBar>
             <WritingBox>
                 <TitleBox
@@ -131,8 +125,7 @@ export const Writing = () => {
                     value={content}
                 />
             </WritingBox>
-            
-            <UserList users={users} />
+
         </>
     )
 }

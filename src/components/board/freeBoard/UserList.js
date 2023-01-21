@@ -3,7 +3,7 @@ import React from 'react';
 function User({ user }) {
   return (
     <div>
-      <b>{user.title}</b> <span>({user.content})</span>
+      <b>{user.title}</b> <span>{user.content}</span>
      
 
     </div>
