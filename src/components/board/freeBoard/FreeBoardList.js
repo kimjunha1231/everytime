@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { listState } from './Writing'
 import { useRecoilValue } from 'recoil'
-
+import recoilPersist
 
 const WritingButton = styled.div`
   overflow: hidden;

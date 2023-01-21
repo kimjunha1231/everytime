@@ -3,10 +3,9 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ProfileIcons } from "../../../path/Resources";
 import { useState, useRef } from "react";
-import FreeBoardList from "./FreeBoardList";
-import { atom, RecoilValueReadOnly } from "recoil";
+import { atom } from "recoil";
 import { useRecoilState } from "recoil";
-import UserList from "./UserList";
+
 
 
 
@@ -81,15 +80,15 @@ export const Writing = () => {
     const navigate = useNavigate();
     const nextId = useRef(0)
     const [list, setList] = useState({
-        title:'',
-        content:''
+        title: '',
+        content: ''
     })
     const { title, content } = list;
     const getValue = e => {
         const { name, value } = e.target;
-        setList({ ...list, [name]: value })      
+        setList({ ...list, [name]: value })
     }
-    
+
     const [users, setUsers] = useRecoilState(listState)
     const onCreate = () => {
         const user = {
@@ -100,7 +99,7 @@ export const Writing = () => {
         setUsers([...users, user])
         setList(users)
         nextId.current += 1;
-        
+
     }
 
     return (
