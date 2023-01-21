@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import { listState } from './Writing'
 import { useRecoilValue } from 'recoil'
-import recoilPersist
+
 
 const WritingButton = styled.div`
   overflow: hidden;
@@ -22,7 +22,10 @@ const ListBox = styled.div`
 `;
 const List = styled.div`
   margin-top: 20px;
+  border-bottom: 1px solid #d3d3d3;
 `;
+
+
 
 const FreeBoardList = () => {
   const navigate = useNavigate()

@@ -5,6 +5,7 @@ import { ProfileIcons } from "../../../path/Resources";
 import { useState, useRef } from "react";
 import { atom } from "recoil";
 import { useRecoilState } from "recoil";
+import { recoilPersist } from 'recoil-persist';
 
 
 
@@ -67,13 +68,15 @@ const ContentBox = styled.input`
         color: #bdbdbd;
   }
 `;
+const { persistAtom } = recoilPersist();
 export const listState = atom({
     key: 'listState',
     default: [{
-        id: 0,
+        id: "",
         title: '',
         content: ''
-    }]
+    }],
+    effects_UNSTABLE: [persistAtom],
 });
 
 export const Writing = () => {

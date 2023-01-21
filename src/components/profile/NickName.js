@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ProfileIcons } from '../../path/Resources'
 import { useNavigate } from "react-router-dom";
-
+import { recoilPersist } from 'recoil-persist'
 import { atom,useRecoilState } from 'recoil';
 
 
@@ -66,9 +66,11 @@ const WarningBox = styled.div`
 const WarningRed = styled.div`
     color:red;
 `;
+const  { persistAtom }  =  recoilPersist ( )
 export const nameState = atom({
     key: 'nameState',
-    default: ["주나"]
+    default: ["주나"],
+    effects_UNSTABLE : [ persistAtom ] , 
   });
 export const NickName = () => {
     let navigate = useNavigate();
