@@ -18,6 +18,7 @@ import toList from "../img/tolist.png";
 import fire from "../img/fire.png";
 import trophy from "../img/trophy.png"
 import etc from "../img/etc.png"
+import freeboard from "../img/freeboard.png"
 
 export const navIcons = {
    person,
@@ -51,6 +52,6 @@ export const BoardListIcons = {
    pin,
    toList,
    fire,
-   trophy
-
+   trophy,
+   freeboard,
 }

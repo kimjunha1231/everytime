@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import { listState } from './Writing'
 import { useRecoilValue } from 'recoil'
-
+import { BoardListIcons, BoardIcon } from '../../../path/Resources'
+import { nameState } from '../../profile/NickName'
 
 const WritingButton = styled.div`
   overflow: hidden;
@@ -18,27 +19,86 @@ const WritingButton = styled.div`
 `;
 const ListBox = styled.div`
   margin-top: 80px;
-
 `;
 const List = styled.div`
-  margin-top: 20px;
   border-bottom: 1px solid #d3d3d3;
+  padding: 15px 0px 6px 7px;
+  width: 100%;
 `;
 
+const ScreenShotIcon = styled.img`
+  width: 100%;
+  height: 20vh;
+`;
+const BoardTitle = styled.div`
+  font-size: 17px;
+`;
+const BoardContent = styled.div`
+  font-size: 13px;
+  color: #848484;
+  font-weight: 600;
+  margin: 7px 0px;
+`;
+const Times = styled.div`
+  color: #d3d3d3;
+  font-size: 10px;
 
+`;
+const TimeNameBox = styled.div`
+  margin-top: 3px;
+  display: flex;
+  
+`;
+const NickName = styled.div`
+  font-size: 10px;
+  color:#d3d3d3;
+  margin-left: 4px;
+`;
+const ChatLikeBox = styled.div`
+  justify-content: flex-end;
+  display: flex;
+`;
+const ChatIcon = styled.img`
+  width: 3%;
+`;
+const EtcBox = styled.div`
+  display: flex;
 
+  justify-content: space-between;
+`;
+
+const LikeIcon = styled.img`
+  width: 3%;
+`;
+const ContentBox = styled.div`
+
+`;
 const FreeBoardList = () => {
   const navigate = useNavigate()
-  const sist = useRecoilValue(listState)
+  const lists = useRecoilValue(listState)
+  const name = useRecoilValue(nameState)
 
   return (
     <>
       <ListBox>
-        {sist.map((item, idx) => (
+        <ScreenShotIcon src={BoardListIcons.freeboard} alt="아뇽" />
+        {lists.map((item, idx) => (
           <React.Fragment key={'BoardItemKey' + idx}>
-            <List>         
-              <div>{item.content}</div>
-              <div>{item.title}</div>
+            <List>
+              <ContentBox>
+                <BoardTitle>{item.title}</BoardTitle>
+                <BoardContent>{item.content}</BoardContent>
+              </ContentBox>
+              <EtcBox>
+                <TimeNameBox>
+                  <Times>2분 전 |</Times>
+                  <NickName>{name}</NickName>
+                </TimeNameBox>
+                <ChatLikeBox>
+                  <LikeIcon src={BoardIcon.like} alt="좋아" />
+                  <ChatIcon src={BoardIcon.chat} alt="챗!" />
+                </ChatLikeBox>
+              </EtcBox>
             </List>
 
           </React.Fragment>

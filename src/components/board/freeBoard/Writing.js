@@ -71,12 +71,8 @@ const ContentBox = styled.input`
 const { persistAtom } = recoilPersist();
 export const listState = atom({
     key: 'listState',
-    default: [{
-        id: "",
-        title: '',
-        content: ''
-    }],
-    effects_UNSTABLE: [persistAtom],
+    default: [],
+    effects_UNSTABLE: [persistAtom], //요거는 완성하고 쓰자 새로고침해도 목록 유지
 });
 
 export const Writing = () => {
